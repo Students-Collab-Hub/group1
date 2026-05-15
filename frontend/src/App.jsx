@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import { Link, Routes, Route } from 'react-router-dom'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
+import About from './pages/About.jsx'
 import './App.css'
 
-function App() {
+function Home() {
   const [count, setCount] = useState(0)
 
   return (
@@ -116,6 +118,22 @@ function App() {
       <div className="ticks"></div>
       <section id="spacer"></section>
     </>
+  )
+}
+
+function App() {
+  return (
+    <div>
+      <nav className="app-nav" style={{ padding: 12, borderBottom: '1px solid #eee' }}>
+        <a href="/" style={{ marginRight: 12 }}>Home</a>
+        <Link to="/about">About</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </div>
   )
 }
 
